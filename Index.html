@@ -1,1 +1,428 @@
+<!doctype html>
+<html lang="sv">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>BörsLärtt — Lär dig börsen, faktorer & strategi</title>
+  <meta name="description" content="En proffsig, pedagogisk sida för att lära sig börsen. Länkar till guider om börsfaktorer (value, momentum, kvalitet, small cap, låg volatilitet, utdelning), makro, risk och verktyg." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet">
 
+  <style>
+    /* ====== Design-variabler ====== */
+    :root{
+      --bg:#0b1118; --panel:#0f1621; --panel-alt:#0c131d;
+      --text:#e8eef6; --muted:#a9b4c4; --brand:#66e0ff; --brand-2:#6cf1c9;
+      --line:rgba(255,255,255,.08);
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0; font-family:Inter,system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
+      color:var(--text); background:
+        radial-gradient(1200px 600px at 10% -10%, #132032 0%, #0b1118 60%) fixed,
+        linear-gradient(180deg, #0b1118 0%, #0b1118 100%) fixed;
+      -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
+    }
+    a{color:inherit; text-decoration:none}
+    .container{max-width:1100px; margin-inline:auto; padding:20px clamp(16px,3vw,28px)}
+
+    /* ====== Header ====== */
+    .site-header{position:sticky; top:0; backdrop-filter:saturate(1.2) blur(6px);
+      background:rgba(8,12,18,.6); border-bottom:1px solid var(--line); z-index:10}
+    .header-inner{display:flex; align-items:center; justify-content:space-between}
+    .brand .logo{font-weight:800; letter-spacing:.2px; font-size:1.25rem;
+      background:linear-gradient(90deg,var(--brand),var(--brand-2));
+      -webkit-background-clip:text; background-clip:text; color:transparent}
+    .nav a{margin-left:18px; color:var(--muted)}
+    .nav a:hover{color:var(--text)}
+
+    /* ====== Hero ====== */
+    .hero{padding:48px 0 10px}
+    .hero-inner{display:grid; gap:28px; grid-template-columns:1.2fr .8fr; align-items:center}
+    @media (max-width: 900px){ .hero-inner{grid-template-columns:1fr} }
+    .hero-copy h1{font-size:clamp(1.6rem,2.6vw + 1rem,3rem); line-height:1.07; margin:.2rem 0 .6rem}
+    .lead{color:var(--muted); max-width:62ch}
+    .btn{display:inline-block; margin:.8rem .6rem .4rem 0; padding:.7rem 1rem; border-radius:12px; border:1px solid var(--line)}
+    .btn-cta{background:linear-gradient(90deg,var(--brand),var(--brand-2)); color:#071018; font-weight:700}
+    .btn-ghost{background:transparent; color:var(--text)}
+    .disclaimer{margin-top:10px; font-size:.9rem; color:var(--muted)}
+
+    /* Hero-grafik (CSS "ljus & staplar") */
+    .hero-art{display:grid; place-items:center}
+    .card-3d{position:relative; width:min(520px,92%); aspect-ratio:16/10; border-radius:20px; overflow:hidden;
+      background:linear-gradient(180deg,#101a29,#0f1621); border:1px solid var(--line);
+      box-shadow:0 30px 60px rgba(0,0,0,.5)}
+    .spark{position:absolute; inset:-40% -20% auto -20%; height:70%; background:radial-gradient(closest-side, rgba(108,241,201,.25), transparent 60%); filter:blur(20px)}
+    .grid-candles{position:absolute; inset:0; display:grid; grid-template-columns:repeat(10,1fr); align-items:end; padding:16px; gap:6px}
+    .grid-candles span{display:block; width:100%; height:40%; border-radius:6px; background:linear-gradient(180deg, rgba(108,241,201,.8), rgba(102,224,255,.5)); animation:pulse 3s ease-in-out infinite}
+    .grid-candles span:nth-child(2n){height:65%} .grid-candles span:nth-child(3n){height:28%}
+    @keyframes pulse{0%{opacity:.7; transform:translateY(0)} 50%{opacity:1; transform:translateY(-4px)} 100%{opacity:.7; transform:translateY(0)}}
+
+    /* ====== Sektioner ====== */
+    .section{padding:40px 0}
+    .section.alt{background:linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,.02))}
+    .section-title{font-size:clamp(1.2rem,1.4vw + 1rem,2rem); margin:0 0 4px}
+    .section-lead{color:var(--muted); margin:0 0 18px}
+
+    /* ====== Kort ====== */
+    .cards{display:grid; gap:16px; grid-template-columns:repeat(12,1fr)}
+    .card{
+      grid-column:span 6; background:linear-gradient(180deg, var(--panel), var(--panel-alt));
+      border:1px solid var(--line); border-radius:16px; padding:16px 16px 10px;
+      box-shadow:0 10px 28px rgba(0,0,0,.35)
+    }
+    @media (max-width: 900px){ .card{grid-column:span 12} }
+    .card h3{margin:.2rem 0 .4rem; font-size:1.05rem}
+    .card p{color:var(--muted); margin:0 0 .6rem}
+    .links{display:flex; flex-wrap:wrap; gap:10px}
+    .links a{padding:.45rem .6rem; border:1px solid var(--line); border-radius:10px; background:rgba(255,255,255,.02); color:#dff6ff}
+    .links a:hover{border-color:rgba(255,255,255,.18)}
+
+    /* ====== Footer ====== */
+    .site-footer{border-top:1px solid var(--line); background:rgba(8,12,18,.5)}
+    .footer-inner{display:flex; align-items:center; justify-content:space-between; gap:14px}
+    .footer-inner .muted{color:var(--muted)}
+    .footer-links a{margin-left:14px; color:var(--muted)} .footer-links a:hover{color:var(--text)}
+
+    /* ====== Chatbot ====== */
+    .chat-launch{
+      position:fixed; right:18px; bottom:18px; width:56px; height:56px; border-radius:50%;
+      border:1px solid var(--line); background:linear-gradient(135deg,var(--panel),#121a27);
+      box-shadow:0 12px 28px rgba(0,0,0,.5); cursor:pointer; font-size:24px; display:grid; place-items:center; z-index:50
+    }
+    .chat-launch:hover{transform:translateY(-1px)}
+    .chatbot{position:fixed; inset:0; display:none; place-items:end; background:rgba(0,0,0,.3); z-index:60}
+    .chatbot.open{display:grid}
+    .chat-window{width:min(420px,94vw); height:min(70vh,680px); margin:0 14px 14px; border-radius:16px; overflow:hidden;
+      background:linear-gradient(180deg, var(--panel), var(--panel-alt)); border:1px solid var(--line);
+      box-shadow:0 24px 60px rgba(0,0,0,.6); display:flex; flex-direction:column}
+    .chat-header{display:flex; align-items:start; justify-content:space-between; gap:8px; padding:12px 12px 8px; border-bottom:1px solid var(--line)}
+    .chat-title-wrap{display:flex; gap:10px; align-items:center}
+    .chat-avatar{font-size:22px}
+    .chat-sub{margin:.1rem 0 0; color:var(--muted); font-size:.9rem}
+    .chat-close{background:transparent; border:none; color:#d4e7f5; font-size:22px; cursor:pointer}
+    .chat-body{flex:1; overflow:auto; padding:12px; display:flex; flex-direction:column; gap:8px}
+    .msg{max-width:85%; padding:.55rem .7rem; border-radius:12px; line-height:1.35}
+    .msg.bot{background:rgba(255,255,255,.06); border:1px solid var(--line)}
+    .msg.user{background:linear-gradient(90deg,var(--brand),var(--brand-2)); color:#071018; align-self:flex-end}
+    .chat-input{display:flex; gap:8px; padding:10px; border-top:1px solid var(--line)}
+    .chat-input input{flex:1; padding:.7rem .8rem; border-radius:10px; border:1px solid var(--line); background:#0b131e; color:var(--text)}
+    .btn-send{border:1px solid var(--line); background:linear-gradient(90deg,var(--brand),var(--brand-2)); color:#071018; border-radius:10px; padding:.6rem .9rem; font-weight:700; cursor:pointer}
+    .btn-send:hover{filter:saturate(1.1)}
+  </style>
+</head>
+
+<body>
+  <!-- ====== HEADER ====== -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="#"><span class="logo">BörsLär</span></a>
+      <nav class="nav" aria-label="Primär">
+        <a href="#start">Start</a>
+        <a href="#faktorer">Faktorer</a>
+        <a href="#macro">Makro & risk</a>
+        <a href="#verktyg">Verktyg</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ====== HERO ====== -->
+  <main id="start" class="hero">
+    <div class="container hero-inner">
+      <div class="hero-copy">
+        <h1>Lär dig börsen på riktigt</h1>
+        <p class="lead">Guidade resurser om <strong>börsfaktorer</strong> (value, momentum, kvalitet m.fl.), portföljbygge och risk — allt samlat på ett ställe.</p>
+        <a class="btn btn-cta" href="#faktorer">Utforska faktorer</a>
+        <a class="btn btn-ghost" href="#macro">Läs om risk & makro</a>
+        <p class="disclaimer">Obs! Allt innehåll är utbildning/information, inte finansiell rådgivning.</p>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <div class="card-3d">
+          <div class="spark"></div>
+          <div class="grid-candles">
+            <span></span><span></span><span></span><span></span><span></span>
+            <span></span><span></span><span></span><span></span><span></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- ====== FAKTORER ====== -->
+  <section id="faktorer" class="section">
+    <div class="container">
+      <h2 class="section-title">Kärnfaktorer & fördjupning</h2>
+      <p class="section-lead">Börsfaktorer är mönster i avkastning. Här är utvalda guider från trovärdiga källor.</p>
+
+      <div class="cards">
+        <article class="card">
+          <h3>Introduktion till faktorinvestering</h3>
+          <p>Vad är faktorer och varför bry sig? Översikt och historik.</p>
+          <div class="links">
+            <a target="_blank" rel="noopener" href="https://www.msci.com/research-and-insights/paper/foundations-of-factor-investing">MSCI: Foundations of Factor Investing</a>
+            <a target="_blank" rel="noopener" href="https://www.investopedia.com/terms/f/factor-investing.asp">Investopedia: Factor Investing</a>
+            <a target="_blank" rel="noopener" href="https://rpc.cfainstitute.org/research/financial-analysts-journal/2017/your-complete-guide-factor-based-investing">CFA: Guide to Factor-Based Investing</a>
+            <a target="_blank" rel="noopener" href="https://www.aqr.com/Insights/Research/Journal-Article/Fact-Fiction-and-Factor-Investing">AQR: Fact & Fiction</a>
+          </div>
+        </article>
+
+        <article class="card">
+          <h3>Värde (Value)</h3>
+          <p>Köpa billigt relativt fundamenta (P/B, P/E, kassaflöde).</p>
+          <div class="links">
+            <a target="_blank" rel="noopener" href="https://www.investopedia.com/terms/v/valueinvesting.asp">Investopedia: Value Investing</a>
+            <a target="_blank" rel="noopener" href="https://www.msci.com/data-and-analytics/factor-investing">MSCI: Value/Style</a>
+          </div>
+        </article>
+
+        <article class="card">
+          <h3>Momentum</h3>
+          <p>Aktier som har gått starkt tenderar att fortsätta på kort–medellång sikt.</p>
+          <div class="links">
+            <a target="_blank" rel="noopener" href="https://www.investopedia.com/terms/m/momentum_investing.asp">Investopedia: Momentum</a>
+            <a target="_blank" rel="noopener" href="https://www.aqr.com/Insights/Research/Journal-Article/Value-and-Momentum-Everywhere">AQR: Value & Momentum Everywhere</a>
+          </div>
+        </article>
+
+        <article class="card">
+          <h3>Kvalitet (Quality)</h3>
+          <p>Starka balansräkningar, stabila vinster och hög lönsamhet.</p>
+          <div class="links">
+            <a target="_blank" rel="noopener" href="https://www.msci.com/data-and-analytics/factor-investing">MSCI: Quality</a>
+            <a target="_blank" rel="noopener" href="https://www.investopedia.com/terms/q/quality-investing.asp">Investopedia: Quality Investing</a>
+          </div>
+        </article>
+
+        <article class="card">
+          <h3>Storlek (Size/Small Cap)</h3>
+          <p>Mindre bolag har historiskt gett extra avkastning men med mer risk.</p>
+          <div class="links">
+            <a target="_blank" rel="noopener" href="https://www.investopedia.com/terms/s/smallcap.asp">Investopedia: Small Cap</a>
+            <a target="_blank" rel="noopener" href="https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/data_library.html">Ken French Data Library</a>
+          </div>
+        </article>
+
+        <article class="card">
+          <h3>Låg volatilitet</h3>
+          <p>”Mindre svängigt” har ibland slagit ”mer svängigt” över tid.</p>
+          <div class="links">
+            <a target="_blank" rel="noopener" href="https://blogs.cfainstitute.org/investor/2024/02/16/the-low-volatility-factor-and-occams-razor/">CFA: Low-Volatility Factor</a>
+            <a target="_blank" rel="noopener" href="https://www.investopedia.com/terms/l/low-volatility-anomaly.asp">Investopedia: Low Vol Anomaly</a>
+          </div>
+        </article>
+
+        <article class="card">
+          <h3>Utdelning / Hög avkastning</h3>
+          <p>Fokus på hög direktavkastning och hållbara utdelningar.</p>
+          <div class="links">
+            <a target="_blank" rel="noopener" href="https://www.msci.com/data-and-analytics/factor-investing">MSCI: High Dividend Yield</a>
+            <a target="_blank" rel="noopener" href="https://www.investopedia.com/terms/d/dividend.asp">Investopedia: Dividend Basics</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== MAKRO & RISK ====== -->
+  <section id="macro" class="section alt">
+    <div class="container">
+      <h2 class="section-title">Makro, risk & portfölj</h2>
+      <p class="section-lead">Hur påverkar räntor, inflation och koncentrationsrisk din portfölj? Lär dig mäta och hantera risk.</p>
+
+      <div class="cards">
+        <article class="card">
+          <h3>Räntor & koncentrationsrisk</h3>
+          <p>Varför dominerar mega cap-bolag index, och vad betyder det för risk?</p>
+          <div class="links">
+            <a target="_blank" rel="noopener" href="https://www.marketwatch.com/story/how-a-more-focused-growth-index-can-cut-your-risk-in-the-stock-market-7e1fa51e">MarketWatch: Concentration risk</a>
+            <a target="_blank" rel="noopener" href="https://www.spglobal.com/spdji/en/documents/performance-reports/dashboard-sp-500-factor.pdf">S&P DJI: S&P 500 Factor Dashboard (PDF)</a>
+          </div>
+        </article>
+
+        <article class="card">
+          <h3>Risk & faktorexponering</h3>
+          <p>Så kan du mäta vilka faktorer din portfölj faktiskt har.</p>
+          <div class="links">
+            <a target="_blank" rel="noopener" href="https://www.aqr.com/-/media/AQR/Documents/Insights/Trade-Publications/Measuring-Portfolio-Factor-Exposures-A-Practical-Guide.pdf">AQR: Measuring Factor Exposures (PDF)</a>
+          </div>
+        </article>
+
+        <article class="card">
+          <h3>Grunderna (svenska guider)</h3>
+          <p>Kom igång med aktier, fonder, risk och ränta-på-ränta.</p>
+          <div class="links">
+            <a target="_blank" rel="noopener" href="https://www.avanza.se/lar-dig-mer/avanza-akademin/aktier.html">Avanza Akademin: Aktier</a>
+            <a target="_blank" rel="noopener" href="https://www.nordnet.fi/skolan/basfakta-om-investering">Nordnet Skolan: Grunderna</a>
+            <a target="_blank" rel="noopener" href="https://www.fi.se/sv/konsumentskydd/">Finansinspektionen: Konsumentskydd</a>
+          </div>
+        </article>
+
+        <article class="card">
+          <h3>Derivat & utbildning</h3>
+          <p>Lär dig om optioner/terminer och riskhantering.</p>
+          <div class="links">
+            <a target="_blank" rel="noopener" href="https://www.nasdaq.com/derivatives-academy">Nasdaq: Derivatives Academy</a>
+            <a target="_blank" rel="noopener" href="https://www.nasdaq.com/articles/stock-trading-guide-for-beginners-2021-2021-06-21">Nasdaq: Guide för nybörjare</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== VERKTYG ====== -->
+  <section id="verktyg" class="section">
+    <div class="container">
+      <h2 class="section-title">Praktiska verktyg & index</h2>
+      <p class="section-lead">Följ faktorer i realtid och fördjupa dig i metodik.</p>
+      <div class="cards">
+        <article class="card">
+          <h3>MSCI Factor Investing</h3>
+          <p>Utforska MSCI:s faktorindex och metodik.</p>
+          <div class="links">
+            <a target="_blank" rel="noopener" href="https://www.msci.com/data-and-analytics/factor-investing">MSCI: Factor Hub</a>
+            <a target="_blank" rel="noopener" href="https://www.msci.com/documents/1296102/1636401/MSCI_Factor_Index_FactSheet_230615.pdf/001f2112-f694-40eb-91ca-d7f56346ca35">MSCI: Factor Index Fact Sheet (PDF)</a>
+          </div>
+        </article>
+
+        <article class="card">
+          <h3>S&P DJI Factor Dashboard</h3>
+          <p>Prestanda och drivkrafter för S&P:s faktorindex.</p>
+          <div class="links">
+            <a target="_blank" rel="noopener" href="https://www.spglobal.com/spdji/en/documents/performance-reports/dashboard-sp-500-factor.pdf">S&P DJI: Månadstablå (PDF)</a>
+          </div>
+        </article>
+
+        <article class="card">
+          <h3>Kenneth French Data Library</h3>
+          <p>Klassiska Fama–French-data för akademiska faktorer.</p>
+          <div class="links">
+            <a target="_blank" rel="noopener" href="https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/data_library.html">Ken French: Data Library</a>
+            <a target="_blank" rel="noopener" href="https://www.portfoliovisualizer.com/factor-analysis">Portfolio Visualizer: Factor Analysis</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== FOOTER ====== -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>© <span id="y"></span> BörsLär — utbildning & länksamling. <span class="muted">Detta är inte finansiell rådgivning.</span></p>
+      <div class="footer-links" aria-label="Sidolänkar">
+        <a href="#start">Upp</a>
+        <a href="#faktorer">Faktorer</a>
+        <a href="#macro">Makro</a>
+        <a href="#verktyg">Verktyg</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ====== AI BOT WIDGET ====== -->
+  <button class="chat-launch" aria-haspopup="dialog" aria-controls="chatbot" aria-expanded="false" title="Fråga BörsLär-boten">
+    <span>🤖</span>
+  </button>
+
+  <div id="chatbot" class="chatbot" role="dialog" aria-modal="true" aria-labelledby="chat-title" aria-hidden="true">
+    <div class="chat-window">
+      <header class="chat-header">
+        <div class="chat-title-wrap">
+          <div class="chat-avatar">🤖</div>
+          <h3 id="chat-title">BörsLär-boten</h3>
+          <p class="chat-sub">Jag kan guida dig till rätt resurser. Vad vill du lära dig?</p>
+        </div>
+        <button class="chat-close" aria-label="Stäng">×</button>
+      </header>
+      <div class="chat-body" id="chat-body" tabindex="0">
+        <div class="msg bot">Hej! Kan jag hjälpa dig hitta rätt guide? Skriv t.ex. <em>”momentum”</em>, <em>”värde”</em> eller <em>”riskhantering”</em>.</div>
+      </div>
+      <form class="chat-input" id="chat-form">
+        <input aria-label="Skriv din fråga" id="chat-text" type="text" placeholder="Skriv din fråga... (t.ex. 'kvalitet', 'ETF', 'diversifiering')" />
+        <button class="btn btn-send" type="submit">Skicka</button>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    // Footer-år
+    const yearSpan = document.getElementById('y'); yearSpan && (yearSpan.textContent = new Date().getFullYear());
+
+    // Chat-modal
+    const launch = document.querySelector('.chat-launch');
+    const modal  = document.getElementById('chatbot');
+    const closeB = document.querySelector('.chat-close');
+    const body   = document.getElementById('chat-body');
+    const form   = document.getElementById('chat-form');
+    const input  = document.getElementById('chat-text');
+
+    function openChat() {
+      modal.setAttribute('aria-hidden', 'false');
+      launch.setAttribute('aria-expanded', 'true');
+      modal.classList.add('open');
+      setTimeout(() => input.focus(), 100);
+      sessionStorage.setItem('bl_chat_seen', '1');
+    }
+    function closeChat() {
+      modal.setAttribute('aria-hidden', 'true');
+      launch.setAttribute('aria-expanded', 'false');
+      modal.classList.remove('open');
+      launch.focus();
+    }
+    launch.addEventListener('click', openChat);
+    closeB.addEventListener('click', closeChat);
+    modal.addEventListener('click', (e) => { if (e.target === modal) closeChat(); });
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && modal.classList.contains('open')) closeChat(); });
+
+    // Auto-popup efter kort delay (en gång per session)
+    window.addEventListener('load', () => {
+      if (!sessionStorage.getItem('bl_chat_seen')) {
+        setTimeout(openChat, 2400);
+      }
+    });
+
+    // Enkel "AI": nyckelord -> länkförslag (klient-sida)
+    const kb = [
+      { k: ['värde','value','billigt','p/e','p/b'], url: 'https://www.investopedia.com/terms/v/valueinvesting.asp', label: 'Läs om Value' },
+      { k: ['momentum','trend'], url: 'https://www.aqr.com/Insights/Research/Journal-Article/Value-and-Momentum-Everywhere', label: 'Läs om Momentum' },
+      { k: ['kvalitet','quality','lönsamhet'], url: 'https://www.msci.com/data-and-analytics/factor-investing', label: 'MSCI: Quality' },
+      { k: ['låg volatilitet','low vol','volatilitet','risk'], url: 'https://blogs.cfainstitute.org/investor/2024/02/16/the-low-volatility-factor-and-occams-razor/', label: 'CFA: Low Vol' },
+      { k: ['småbolag','small cap','size'], url: 'https://www.investopedia.com/terms/s/smallcap.asp', label: 'Small Cap' },
+      { k: ['utdelning','dividend'], url: 'https://www.investopedia.com/terms/d/dividend.asp', label: 'Dividend basics' },
+      { k: ['msci','faktor','metodik'], url: 'https://www.msci.com/data-and-analytics/factor-investing', label: 'MSCI Factor Hub' },
+      { k: ['s&p','dashboard'], url: 'https://www.spglobal.com/spdji/en/documents/performance-reports/dashboard-sp-500-factor.pdf', label: 'S&P Factor Dashboard' },
+      { k: ['avanza','aktier'], url: 'https://www.avanza.se/lar-dig-mer/avanza-akademin/aktier.html', label: 'Avanza: Aktieskola' },
+      { k: ['nordnet','skolan'], url: 'https://www.nordnet.fi/skolan/basfakta-om-investering', label: 'Nordnet Skolan' },
+      { k: ['optioner','derivat','terminer'], url: 'https://www.nasdaq.com/derivatives-academy', label: 'Nasdaq Derivatives Academy' },
+      { k: ['konsumentskydd','fi','bluff'], url: 'https://www.fi.se/sv/konsumentskydd/', label: 'FI: Konsumentskydd' },
+      { k: ['fama','french','data'], url: 'https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/data_library.html', label: 'Ken French: Data Library' },
+      { k: ['analys','faktorer'], url: 'https://www.portfoliovisualizer.com/factor-analysis', label: 'Portfolio Visualizer: Factor Analysis' },
+    ];
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const q = (input.value || '').trim().toLowerCase();
+      if (!q) return;
+      pushMsg('user', escapeHTML(q));
+      const hit = kb.find(x => x.k.some(t => q.includes(t)));
+      if (hit) {
+        pushMsg('bot', `Här är en bra resurs: <a target="_blank" rel="noopener" href="${hit.url}">${hit.label}</a>`);
+      } else {
+        pushMsg('bot', 'Jag hittade ingen direkt matchning. Prova: <em>värde</em>, <em>momentum</em>, <em>kvalitet</em>, <em>small cap</em>, <em>låg volatilitet</em>, <em>utdelning</em>, <em>optioner</em>.');
+      }
+      input.value = '';
+    });
+
+    function pushMsg(who, html) {
+      const div = document.createElement('div');
+      div.className = 'msg ' + (who === 'user' ? 'user' : 'bot');
+      div.innerHTML = html;
+      body.appendChild(div);
+      body.scrollTop = body.scrollHeight;
+    }
+    function escapeHTML(str){
+      return str.replace(/[&<>"']/g, m => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
+    }
+  </script>
+</body>
+</html>
