@@ -1,88 +1,313 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="sv">
 <head>
-      <!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-KWGRHVGF');</script>
-<!-- End Google Tag Manager -->
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">va
-    <!--CSS Instructions-->
-    <link href="https://jesperastrom.github.io/resources/css/index.css" type="text/css" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-KWGRHVGF');</script>
+  <!-- End Google Tag Manager -->
 
-    <title>Web Analytics Demo</title>
-    <link rel="stylesheet" href="css/styles.css">
-    
-    <!-- Initialize dataLayer -->
-    <script>
-        window.dataLayer = window.dataLayer || [];
-    </script>
-    
-    <!-- Analytics Script (load before page content) -->
-    <script src="js/analytics.js"></script>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Vilhelm af Ekenstams Portfolio</title>
+  <meta name="description" content="Vilhelm af Ekenstams portfolio – länkar, case och lärdomar ur ett growth marketing-perspektiv." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg:#0b1118; --bg2:#0d1521; --panel:#101826; --panel2:#0c1220;
+      --text:#e8f0ff; --muted:#9fb0c6; --line:rgba(255,255,255,.12);
+      --brand:#66e0ff; --brand2:#6cf1c9; --accent:#ffd166; --ok:#34d399; --warn:#f59e0b;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0; font-family:Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+      color:var(--text);
+      background:
+        radial-gradient(1200px 600px at 15% -10%, #132032 0%, transparent 55%) fixed,
+        radial-gradient(1000px 600px at 100% 0%, rgba(108,241,201,.12), transparent 60%) fixed,
+        linear-gradient(180deg,var(--bg) 0%, var(--bg2) 100%) fixed;
+      -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
+    }
+    a{color:var(--brand)}
+    .wrap{max-width:1100px; margin:auto; padding:28px clamp(16px,3vw,28px)}
+    header{position:sticky; top:0; z-index:10; backdrop-filter:saturate(1.2) blur(12px);
+      background:linear-gradient(180deg, rgba(8,12,18,.65), rgba(8,12,18,.35)); border-bottom:1px solid var(--line)}
+    .head{display:flex; align-items:center; justify-content:space-between; gap:14px}
+    .logo{display:flex; align-items:center; gap:.6rem; font-weight:800; letter-spacing:.3px}
+    .orb{width:18px; height:18px; border-radius:50%;
+      background:conic-gradient(from 0deg,var(--brand),var(--brand2),var(--brand));
+      box-shadow:0 0 24px rgba(102,224,255,.5)}
+    nav{display:flex; gap:10px; flex-wrap:wrap}
+    .btn{
+      display:inline-flex; align-items:center; gap:.45rem; padding:.6rem .9rem; border-radius:12px;
+      border:1px solid var(--line); text-decoration:none; color:var(--text);
+      background:rgba(255,255,255,.04); font-weight:600
+    }
+    .btn:hover{border-color:rgba(255,255,255,.22)}
+    .btn-primary{background:linear-gradient(90deg,var(--brand),var(--brand2)); color:#071018; border:none}
+
+    .hero{padding:40px 0 10px}
+    h1{margin:.2rem 0 .4rem; font-size:clamp(1.6rem,2.4vw + 1rem,2.8rem)}
+    .lead{color:var(--muted); max-width:70ch}
+
+    .grid{display:grid; gap:16px; grid-template-columns:repeat(12,1fr); margin-top:18px}
+    .card{
+      grid-column:span 6; background:linear-gradient(180deg,var(--panel),var(--panel2));
+      border:1px solid var(--line); border-radius:16px; padding:18px 16px 14px;
+      box-shadow:0 10px 28px rgba(0,0,0,.35); transition:transform .2s, box-shadow .2s;
+      display:flex; flex-direction:column; justify-content:space-between; min-height:190px
+    }
+    .card:hover{transform:translateY(-3px); box-shadow:0 16px 36px rgba(0,0,0,.5), 0 0 40px rgba(102,224,255,.15) inset}
+    @media (max-width: 900px){ .card{grid-column:span 12} }
+    .card h2{margin:.2rem 0 .25rem; font-size:1.08rem}
+    .card p{color:var(--muted); margin:0 0 .9rem}
+    .actions{display:flex; gap:10px; flex-wrap:wrap}
+    .meta{font-size:.82rem; color:#cfe9f5; opacity:.9; margin-top:auto}
+
+    .section-title{
+      display:flex; align-items:center; gap:.6rem; margin:28px 0 6px; font-size:1.2rem; font-weight:800
+    }
+    .pill{display:inline-flex; align-items:center; gap:.35rem; padding:.3rem .6rem; border-radius:999px;
+      border:1px solid var(--line); color:var(--muted); font-size:.82rem}
+
+    .learn-grid .card{min-height:160px}
+    .learn-item h3{margin:.1rem 0 .4rem; font-size:1rem}
+
+    footer{border-top:1px solid var(--line); margin-top:22px; padding-top:12px; color:var(--muted); font-size:.92rem; display:flex; justify-content:space-between; gap:10px; flex-wrap:wrap}
+  </style>
 </head>
 <body>
-    <!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KWGRHVGF"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
-    <header>
-        <!--Breadcrumbs Start-->
-        <ul class="breadcrumb">
-            <li><a href="#">Home</a></li>
-        </ul>
-        <!--Breadcrumbs End-->
-    </header>
-    <main>
-        <section id="top" class="content">
-            <h1>Demo shop</h1>
-        </section>
-        <section class="content">
-            <p>This page demonstrates how to use the dataLayer for web analytics.</p>
-            <p>Open the Console and check the dataLayer as you click the links and buttons below this text.</p>
-        </section>
-        <nav>
-            <ul>
-                <li><a href="#" id="home-link">Home</a></li>
-                <li><a href="#" id="products-link">Products</a></li>
-                <li><a href="#" id="about-link">About</a></li>
-                <li><a href="#" id="contact-link">Contact</a></li>
-            </ul>
-        </nav>
-        <section id="hero" class="content">
-             <button id="cta-button">Click Me!</button>
-        </section>
-        
-        <section id="products" class="content">
-            <h2>Products</h2>
-            <div class="product-grid">
-                <div class="product" data-product-id="123" data-product-name="Product A" data-product-price="19.99">
-                    <h3>Product A</h3>
-                    <p>$19.99</p>
-                    <button class="add-to-cart">Add to Cart</button>
-                </div>
-                <div class="product" data-product-id="456" data-product-name="Product B" data-product-price="29.99">
-                    <h3>Product B</h3>
-                    <p>$29.99</p>
-                    <button class="add-to-cart">Add to Cart</button>
-                </div>
-                <div class="product" data-product-id="789" data-product-name="Product C" data-product-price="39.99">
-                    <h3>Product C</h3>
-                    <p>$39.99</p>
-                    <button class="add-to-cart">Add to Cart</button>
-                </div>
-            </div>
-        </section>
-    </main>
-    
-    <footer>
-        <p>&copy; 2025 Web Analytics Demo</p>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KWGRHVGF"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+
+  <header>
+    <div class="wrap head">
+      <div class="logo"><span class="orb"></span>Vilhelm af Ekenstams Portfolio</div>
+      <nav aria-label="Snabblänkar">
+        <a class="btn" href="#verktyg">Verktyg</a>
+        <a class="btn" href="#lar">Detta har jag lärt mig</a>
+        <a class="btn" href="#kontakt">Kontakt</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="hero">
+      <h1>Hej, jag är Vilhelm – growth-nörd med mätfobi (jag mäter allt).</h1>
+      <p class="lead">
+        Välkommen till min portfölj. Här finns mina viktigaste länkar, en miniresa genom vad jag lärt mig
+        och lite lagom kaxiga invändningar: <em>“Hypoteser är billiga. Experiment är guld.”</em>
+      </p>
+      <div class="pill">North Star: <strong>Aktiverade användare</strong> → inte bara trafik 🚀</div>
+    </section>
+
+    <!-- VERKTYG / LÄNKAR -->
+    <h2 id="verktyg" class="section-title">Verktyg & kanaler <span class="pill">“Om det inte går att mäta, händer det ens?”</span></h2>
+    <section class="grid">
+      <!-- LinkedIn -->
+      <article class="card">
+        <div>
+          <h2>🔵 LinkedIn</h2>
+          <p>Mitt nav för nätverk och trafik. “Dark social” är inte mörkt – bara svårare att attribuera 😉</p>
+        </div>
+        <div class="actions">
+          <a class="btn-primary" href="https://www.linkedin.com/in/vilhelm-af-ekenstam-b10b4a314/" target="_blank" rel="noopener">↗ Öppna profil</a>
+          <span class="meta">Brand & deal-flow</span>
+        </div>
+      </article>
+
+      <!-- GitHub -->
+      <article class="card">
+        <div>
+          <h2>🐙 GitHub</h2>
+          <p>Publika repos, proof-of-work och dokumentation. “Om det inte är i git, är det ens gjort?”</p>
+        </div>
+        <div class="actions">
+          <!-- Byt till din riktiga profil-URL -->
+          <a class="btn-primary" href="https://github.com/" target="_blank" rel="noopener">↗ Mina repos</a>
+          <span class="meta">Versioner & transparens</span>
+        </div>
+      </article>
+
+      <!-- Klaviyo -->
+      <article class="card">
+        <div>
+          <h2>📧 Klaviyo</h2>
+          <p>Flows, segment och prediktiv LTV. “Retention betalar hyran.”</p>
+        </div>
+        <div class="actions">
+          <a class="btn-primary" href="https://www.klaviyo.com/" target="_blank" rel="noopener">↗ Öppna Klaviyo</a>
+          <span class="meta">CRM & lifecycle</span>
+        </div>
+      </article>
+
+      <!-- GA4 -->
+      <article class="card">
+        <div>
+          <h2>📊 GA4</h2>
+          <p>North Star, aktivering och funnels. Jag gillar siffror som leder till beslut.</p>
+        </div>
+        <div class="actions">
+          <a class="btn-primary" href="https://analytics.google.com/" target="_blank" rel="noopener">↗ Öppna GA4</a>
+          <span class="meta">Insikter & KPI</span>
+        </div>
+      </article>
+
+      <!-- GTM -->
+      <article class="card">
+        <div>
+          <h2>🏷️ Google Tag Manager</h2>
+          <p>Snabb spårning utan dev-slöseri. “Mät först. Designa om sen.”</p>
+        </div>
+        <div class="actions">
+          <a class="btn-primary" href="https://tagmanager.google.com/" target="_blank" rel="noopener">↗ Öppna GTM</a>
+          <span class="meta">Experiment & QA</span>
+        </div>
+      </article>
+
+      <!-- Looker Studio -->
+      <article class="card">
+        <div>
+          <h2>📈 Looker Studio</h2>
+          <p>Dashboards som faktiskt används. Inga fler Excel-filer som ingen öppnar.</p>
+        </div>
+        <div class="actions">
+          <a class="btn-primary" href="https://lookerstudio.google.com/" target="_blank" rel="noopener">↗ Öppna Looker Studio</a>
+          <span class="meta">Visualisering</span>
+        </div>
+      </article>
+
+      <!-- Search Console -->
+      <article class="card">
+        <div>
+          <h2>🔎 Search Console</h2>
+          <p>Indexering, CTR och noll-positioner. “SEO: långsamt, men lönsamt.”</p>
+        </div>
+        <div class="actions">
+          <a class="btn-primary" href="https://search.google.com/search-console" target="_blank" rel="noopener">↗ Öppna GSC</a>
+          <span class="meta">Organic growth</span>
+        </div>
+      </article>
+
+      <!-- Ads -->
+      <article class="card">
+        <div>
+          <h2>💰 Google Ads / Meta Ads</h2>
+          <p>Skalbar acquisition. “Budget utan spårning = välgörenhet.”</p>
+        </div>
+        <div class="actions">
+          <a class="btn" href="https://ads.google.com/" target="_blank" rel="noopener">↗ Google Ads</a>
+          <a class="btn" href="https://business.facebook.com/" target="_blank" rel="noopener">↗ Meta Business</a>
+          <span class="meta">Paid growth</span>
+        </div>
+      </article>
+    </section>
+
+    <!-- LÄRDOMAR -->
+    <h2 id="lar" class="section-title">Detta har jag lärt mig under Jesper Åströms kurs <span class="pill">“Hypotes → test → lärdom.”</span></h2>
+    <section class="grid learn-grid">
+      <article class="card learn-item">
+        <div>
+          <h3>Visual Studio Code + Terminal</h3>
+          <p>Jag har arbetat i VS Code och övat grunder i terminalen för att navigera och köra kommandon (t.ex. <code>ls</code>, byta mappar). Jag har tränat på att lägga in kod, spara och köra enklare arbetsflöden via terminalen.</p>
+        </div>
+        <div class="actions">
+          <a class="btn" href="#vscode-terminal">Läs mer</a>
+        </div>
+      </article>
+
+      <article class="card learn-item">
+        <div>
+          <h3>Git & GitHub (versionshantering och publicering)</h3>
+          <p>Jag skapade ett GitHub-konto, kopplade repot till VS Code och lärde mig commit/push. Jag publicerade sajten via GitHub Pages, vilket gav mig förståelse för hur kod blir tillgänglig på webben.</p>
+        </div>
+        <div class="actions">
+          <a class="btn" href="#git-github">Läs mer</a>
+        </div>
+      </article>
+
+      <article class="card learn-item">
+        <div>
+          <h3>Google Tag Manager (spårning)</h3>
+          <p>Jag implementerade GTM-containern och lärde mig skapa taggar, triggers och variabler. Jag satte upp klickmätning på länkar/knappar och förstår nu hur data rör sig från sajt → GTM → GA4.</p>
+        </div>
+        <div class="actions">
+          <a class="btn" href="#gtm">Läs mer</a>
+        </div>
+      </article>
+
+      <article class="card learn-item">
+        <div>
+          <h3>Google Analytics 4 & Looker Studio (analys)</h3>
+          <p>Jag lärde mig hitta nyckelmått (användare, sessioner, konverteringar), bygga enkla dashboards och förstå hur olika trafikkanaler presterar. Jag har även bekantat mig med konverteringshändelser och hur de påverkar rapporteringen.</p>
+        </div>
+        <div class="actions">
+          <a class="btn" href="#ga4-looker">Läs mer</a>
+        </div>
+      </article>
+    </section>
+
+    <!-- UNDERSIDOR / FÖRDJUPNINGAR (ankare) -->
+    <section id="vscode-terminal" class="card" style="margin-top:18px">
+      <h2>Visual Studio Code + Terminal</h2>
+      <p>Setup, filer, mappar och terminal-kommandon som snabbade upp mitt flöde. Bonus: “Det du automatiserar idag slipper du glömma imorgon.”</p>
+      <ul>
+        <li>Grunder i navigering: <code>ls</code>, <code>cd</code>, skapa/kopiera/mappar</li>
+        <li>Live-server / snabb förhandsvisning lokalt</li>
+        <li>Struktur för projekt så publiken (och jag själv) fattar</li>
+      </ul>
+    </section>
+
+    <section id="git-github" class="card" style="margin-top:16px">
+      <h2>Git & GitHub</h2>
+      <p>Versionshantering utan tårar. “Om det inte går att rulla tillbaka, är det en fälla.”</p>
+      <ul>
+        <li>Initiera repo, <code>commit</code>, <code>push</code>, pull requests</li>
+        <li>GitHub Pages för publicering – från lokal fil till live på sekunder</li>
+        <li>README & /examples för att visa arbetet tydligt</li>
+      </ul>
+    </section>
+
+    <section id="gtm" class="card" style="margin-top:16px">
+      <h2>Google Tag Manager</h2>
+      <p>Taggar, triggers och variabler – allt för att mäta utan att störa utvecklingstakten.</p>
+      <ul>
+        <li>Implementera GTM-snippet (ja, den du ser i <code>&lt;head&gt;</code> och <code>&lt;noscript&gt;</code>)</li>
+        <li>Klickspårning på länkar/knappar – vilka CTAs levererar?</li>
+        <li>Debug/Preview och publicering med versioner</li>
+      </ul>
+    </section>
+
+    <section id="ga4-looker" class="card" style="margin-top:16px">
+      <h2>GA4 & Looker Studio</h2>
+      <p>Från sifferröra till beslut. “Rätt fråga → rätt dimension → rätt mått.”</p>
+      <ul>
+        <li>KPI:er – användare, sessioner, konverteringar, intäkter (e-handel)</li>
+        <li>Konverteringshändelser i GA4 och beräknade fält i Looker Studio</li>
+        <li>3-sidors demo-dashboard: Översikt, Förvärv, Innehåll</li>
+      </ul>
+    </section>
+
+    <footer id="kontakt">
+      <span>© <span id="y"></span> Vilhelm af Ekenstam</span>
+      <span>
+        <a class="btn" href="mailto:vilhelm@example.com">✉️ Maila mig</a>
+      </span>
     </footer>
+  </main>
+
+  <script>
+    // Dynamiskt årtal
+    document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>

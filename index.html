@@ -2,207 +2,169 @@
 <html lang="sv">
 <head>
   <!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-KWGRHVGF');</script>
-<!-- End Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-KWGRHVGF');</script>
+  <!-- End Google Tag Manager -->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Vilhelm af Ekenstams Portfolio</title>
-  <meta name="description" content="En stilren översikt över Vilhelm af Ekenstams viktigaste digitala länkar och verktyg." />
+  <title>Vilhelm – Growth Marketing Portfolio</title>
+  <meta name="description" content="Growth marketing-portfolio: verktyg, experiment och lärdomar med fokus på tillväxt, aktivering och retention." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
   <style>
     :root{
-      --bg:#0b1118; --panel:#101826; --panel2:#0d1521;
-      --text:#e9f0f7; --muted:#9fb0c6; --brand:#66e0ff; --brand2:#6cf1c9; --line:rgba(255,255,255,.12);
+      --bg:#05060b; --bg2:#0f1020; --glass:#0e1324cc; --panel:#0b0f1e; --line:rgba(255,255,255,.12);
+      --text:#f0f6ff; --muted:#a5b5d1;
+      --brand:#7c5cff; --brand2:#00ffe1; --accent:#fee47a;
     }
     *{box-sizing:border-box}
+    html,body{height:100%}
     body{
-      margin:0; font-family:Inter,system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
-      color:var(--text); background:
-        radial-gradient(1200px 600px at 10% -10%, #132032 0%, #0b1118 60%) fixed,
-        linear-gradient(180deg,#0b1118 0%,#0b1118 100%) fixed;
+      margin:0; font-family:Inter,system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif; color:var(--text);
+      background: radial-gradient(1200px 800px at 10% -10%, rgba(124,92,255,.25), transparent 55%),
+                  radial-gradient(1000px 700px at 100% 0%, rgba(0,255,225,.22), transparent 55%),
+                  linear-gradient(180deg, var(--bg) 0%, var(--bg2) 100%);
       -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
     }
-    .wrap{max-width:1100px; margin:auto; padding:28px clamp(16px,3vw,28px)}
-    header{position:sticky; top:0; z-index:10; backdrop-filter:saturate(1.2) blur(8px);
-      background:rgba(8,12,18,.55); border-bottom:1px solid var(--line)}
+    .wrap{max-width:1200px; margin:auto; padding:28px clamp(16px,3vw,28px)}
+
+    /* Header */
+    header{position:sticky; top:0; z-index:10; backdrop-filter:saturate(1.2) blur(12px);
+      background:linear-gradient(180deg, rgba(5,6,11,.65), rgba(5,6,11,.35)); border-bottom:1px solid var(--line)}
     .head{display:flex; align-items:center; justify-content:space-between}
-    .logo{font-weight:800; letter-spacing:.2px; font-size:1.1rem;
-      background:linear-gradient(90deg,var(--brand),var(--brand2));
-      -webkit-background-clip:text; background-clip:text; color:transparent}
-    .hero{padding:34px 0 8px}
-    h1{margin:.2rem 0 .4rem; font-size:clamp(1.6rem,2.2vw + 1rem,2.6rem)}
+    .logo{font-weight:800; letter-spacing:.2px; font-size:1.05rem; display:flex; align-items:center; gap:.55rem}
+    .orb{width:18px; height:18px; border-radius:50%; background:conic-gradient(from 180deg,var(--brand),var(--brand2),var(--brand)); box-shadow:0 0 24px rgba(124,92,255,.55)}
+    nav{display:flex; gap:10px; flex-wrap:wrap}
+    .btn{display:inline-flex; align-items:center; gap:.45rem; padding:.6rem .9rem; border-radius:12px; border:1px solid var(--line); text-decoration:none; color:var(--text); background:rgba(255,255,255,.04); font-weight:600}
+    .btn:hover{border-color:rgba(255,255,255,.22)}
+    .btn-primary{background:linear-gradient(90deg,var(--brand),var(--brand2)); color:#071018; border:none}
+
+    /* Hero */
+    .hero{padding:42px 0 18px; position:relative}
+    .sparkle{position:absolute; inset:-80px -60px auto auto; width:320px; height:320px; filter:blur(60px); background:radial-gradient(closest-side, rgba(124,92,255,.35), transparent 70%)}
+    h1{margin:.2rem 0 .4rem; font-size:clamp(1.7rem,2.2vw + 1.1rem,2.8rem)}
     .lead{color:var(--muted); max-width:70ch}
 
-    .grid{display:grid; gap:16px; grid-template-columns:repeat(12,1fr); margin-top:18px}
-    .card{
-      grid-column:span 6; background:linear-gradient(180deg,var(--panel),var(--panel2));
-      border:1px solid var(--line); border-radius:16px; padding:18px 16px 14px;
-      box-shadow:0 10px 28px rgba(0,0,0,.35); transition:transform .2s, box-shadow .2s;
-      display:flex; flex-direction:column; justify-content:space-between; min-height:190px
-    }
+    /* Cards */
+    .grid{display:grid; gap:18px; grid-template-columns:repeat(12,1fr); margin-top:18px}
+    .card{grid-column:span 6; background:linear-gradient(180deg, var(--glass), rgba(8,12,24,.6)); border:1px solid var(--line); border-radius:18px; padding:18px 16px 14px; box-shadow:0 10px 28px rgba(0,0,0,.35), 0 0 0 1px rgba(255,255,255,.03) inset; transition:transform .2s, box-shadow .2s, border-color .2s; display:flex; flex-direction:column; justify-content:space-between; min-height:200px; perspective:1200px}
+    .card:hover{transform:translateY(-3px) rotateX(1deg); border-color:rgba(255,255,255,.22); box-shadow:0 16px 36px rgba(0,0,0,.5), 0 0 40px rgba(124,92,255,.18) inset}
     @media (max-width: 900px){ .card{grid-column:span 12} }
     .card h2{margin:.2rem 0 .25rem; font-size:1.08rem}
     .card p{color:var(--muted); margin:0 0 .9rem}
     .meta{font-size:.82rem; color:#cfe9f5; opacity:.9; margin-top:auto}
     .actions{display:flex; gap:10px; flex-wrap:wrap}
-    .btn{
-      display:inline-flex; align-items:center; gap:.45rem;
-      padding:.6rem .9rem; border-radius:10px; border:1px solid var(--line);
-      text-decoration:none; color:var(--text); background:rgba(255,255,255,.04); font-weight:600
-    }
-    .btn:hover{border-color:rgba(255,255,255,.22)}
-    .btn-primary{background:linear-gradient(90deg,var(--brand),var(--brand2)); color:#071018; border:none}
-    .icon{font-size:1.1rem}
-    footer{border-top:1px solid var(--line); margin-top:22px; padding-top:12px; color:var(--muted); font-size:.92rem; display:flex; justify-content:space-between; gap:10px; flex-wrap:wrap}
+
+    /* Learn grid */
+    .learn-card{min-height:170px}
+
+    /* Pages */
+    .page{display:none}
+    .page.active{display:block}
+    .sub-hero{padding:18px 0 8px}
+    .kicker{font-size:.8rem; letter-spacing:.1em; text-transform:uppercase; color:#b8c7da; opacity:.9}
+    .badge{display:inline-block; padding:.28rem .55rem; border:1px solid var(--line); border-radius:999px; margin-right:.4rem; font-size:.78rem; color:#cfe9f5}
+    .back{margin:16px 0 0}
+
+    /* Timeline */
+    .timeline{margin:18px 0; border-left:2px dashed rgba(255,255,255,.12); padding-left:16px}
+    .tl-item{margin:12px 0}
+    .tl-title{font-weight:600}
+
+    footer{border-top:1px solid var(--line); margin-top:26px; padding-top:14px; color:var(--muted); font-size:.92rem; display:flex; justify-content:space-between; gap:10px; flex-wrap:wrap}
     .pill{border:1px solid var(--line); padding:.35rem .6rem; border-radius:999px; color:var(--muted)}
   </style>
 </head>
 <body>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KWGRHVGF" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
 
   <header>
     <div class="wrap head">
-      <div class="logo">Vilhelm af Ekenstams Portfolio</div>
+      <div class="logo"><span class="orb"></span>Vilhelm – Growth Marketing</div>
       <nav aria-label="Snabblänkar">
+        <a class="btn" href="#home">Hem</a>
         <a class="btn" href="#verktyg">Verktyg</a>
+        <a class="btn" href="#lardomar">Lärdomar</a>
+        <a class="btn" href="#minalar">Mina lärdomar</a>
         <a class="btn" href="#kontakt">Kontakt</a>
       </nav>
     </div>
   </header>
 
   <main class="wrap">
-    <section class="hero">
-      <h1>Vilhelm af Ekenstams Portfolio</h1>
-      <p class="lead">Samlade länkar till mina viktigaste plattformar och verktyg – med kort beskrivning och <strong>riktiga knappar</strong> för snabb åtkomst.</p>
+    <!-- STARTSIDA -->
+    <section id="home" class="page active">
+      <section class="hero">
+        <div class="sparkle"></div>
+        <h1>Growth marketing-portfolio</h1>
+        <p class="lead">Experiment, mätning och skalbar distribution. Samma kursinnehåll – nu med <strong>undersidor</strong> och en extra sektion <strong>“Mina lärdomar”</strong> som beskriver exakt vad jag tog med mig från varje moment.</p>
+      </section>
+
+      <!-- VERKTYG -->
+      <section id="verktyg" class="grid">
+        <article class="card"><div><h2>🔵 LinkedIn</h2><p>Top-of-funnel & social proof. Organiskt + dark social → kvalificerad trafik.</p></div><div class="actions"><a class="btn-primary" href="https://www.linkedin.com/" target="_blank" rel="noopener">↗ Öppna</a><a class="btn" href="https://www.linkedin.com/in/DIN-ALIAS" target="_blank" rel="noopener">👤 Min profil</a><span class="meta">Demand gen & community</span></div></article>
+        <article class="card"><div><h2>🐙 GitHub</h2><p>Publika projekt som bevisar värde. Enablement för produktledd tillväxt.</p></div><div class="actions"><a class="btn-primary" href="https://github.com/" target="_blank" rel="noopener">↗ Öppna</a><a class="btn" href="https://github.com/DITT-ANV" target="_blank" rel="noopener">📁 Repos</a><span class="meta">PLG assets</span></div></article>
+        <article class="card"><div><h2>📊 Google Analytics (GA4)</h2><p>North Star, aktivering och retention-kohorter. Funnelrapporter som styr roadmap.</p></div><div class="actions"><a class="btn-primary" href="https://analytics.google.com/" target="_blank" rel="noopener">↗ Öppna</a><a class="btn" href="https://analytics.google.com/analytics/web/#/pXXXXXXX/reports" target="_blank" rel="noopener">📈 Favoritrapport</a><span class="meta">NSM & kohorter</span></div></article>
+        <article class="card"><div><h2>🏷️ Google Tag Manager</h2><p>Experimentmotor: snabb spårning, A/B-tags och hypothesdriven utveckling.</p></div><div class="actions"><a class="btn-primary" href="https://tagmanager.google.com/" target="_blank" rel="noopener">↗ Öppna</a><a class="btn" href="https://tagmanager.google.com/#/container/accounts/XXXX/containers/YYYY/workspaces/1" target="_blank" rel="noopener">🧩 Container</a><span class="meta">Experiment & QA</span></div></article>
+        <article class="card"><div><h2>📝 Google Docs</h2><p>PRD/experiments-briefs & post-mortems. En källa till sanning.</p></div><div class="actions"><a class="btn-primary" href="https://docs.google.com/" target="_blank" rel="noopener">↗ Öppna</a><a class="btn" href="https://docs.google.com/document/d/DIN-DOC-ID/edit" target="_blank" rel="noopener">🗂️ Dokument</a><span class="meta">Alignment</span></div></article>
+        <article class="card"><div><h2>📁 Google Drive</h2><p>Asset-hubb för landningssidor, kreativiteter och datadumpar.</p></div><div class="actions"><a class="btn-primary" href="https://drive.google.com/" target="_blank" rel="noopener">↗ Öppna</a><a class="btn" href="https://drive.google.com/drive/folders/DIN-MAPP-ID" target="_blank" rel="noopener">🗃️ Mapp</a><span class="meta">Content ops</span></div></article>
+        <article class="card"><div><h2>🔎 Google Search Console</h2><p>Organisk tillväxt: topic authority, CTR och teknisk hälsa.</p></div><div class="actions"><a class="btn-primary" href="https://search.google.com/search-console" target="_blank" rel="noopener">↗ Öppna</a><a class="btn" href="https://search.google.com/search-console?resource_id=https://din-domän.se/" target="_blank" rel="noopener">🌐 Property</a><span class="meta">SEO impact</span></div></article>
+        <article class="card"><div><h2>💰 Google Ads</h2><p>Skalbar acquisition. PMax + manuellt sök för kontroll över CPA.</p></div><div class="actions"><a class="btn-primary" href="https://ads.google.com/" target="_blank" rel="noopener">↗ Öppna</a><a class="btn" href="https://ads.google.com/aw/overview?ocid=XXXXXXX" target="_blank" rel="noopener">📊 Översikt</a><span class="meta">Paid growth</span></div></article>
+        <article class="card"><div><h2>📧 Klaviyo</h2><p>Aktivering & retention: flows, segment och prediktiv LTV.</p></div><div class="actions"><a class="btn-primary" href="https://www.klaviyo.com/" target="_blank" rel="noopener">↗ Öppna</a><a class="btn" href="https://www.klaviyo.com/flows/DIN-FLOW-ID" target="_blank" rel="noopener">🔁 Flow</a><span class="meta">CRM & LTV</span></div></article>
+      </section>
+
+      <!-- KURSENS AVSNITT (länkar till undersidor) -->
+      <section id="lardomar" class="sub-hero">
+        <h2>Kursens avsnitt (undersidor)</h2>
+        <p class="lead">Samma avsnitt som i materialet du skickade – varje kort leder till en egen sida.</p>
+        <div class="grid" style="margin-top:10px">
+          <article class="card learn-card"><div><h2>00 – Introduktion</h2><p>NSM, KPI-träd och arbetsflöde.</p></div><div class="actions"><a class="btn-primary" href="#intro">📄 Öppna sida</a></div></article>
+          <article class="card learn-card"><div><h2>01 – Klona repo</h2><p>Git-flöden för snabb iteration.</p></div><div class="actions"><a class="btn-primary" href="#clone">📄 Öppna sida</a></div></article>
+          <article class="card learn-card"><div><h2>01 – Google Tag Manager</h2><p>Spårning, mål och publicering.</p></div><div class="actions"><a class="btn-primary" href="#gtm">📄 Öppna sida</a></div></article>
+          <article class="card learn-card"><div><h2>01a – dataLayer</h2><p>Eventdesign för aktivering.</p></div><div class="actions"><a class="btn-primary" href="#datalayer">📄 Öppna sida</a></div></article>
+          <article class="card learn-card"><div><h2>01b – GTM & JavaScript</h2><p>Custom-variabler & segment.</p></div><div class="actions"><a class="btn-primary" href="#gtmjs">📄 Öppna sida</a></div></article>
+          <article class="card learn-card"><div><h2>01c – queryParams</h2><p>UTM → aktivering → intäkt.</p></div><div class="actions"><a class="btn-primary" href="#queryparams">📄 Öppna sida</a></div></article>
+          <article class="card learn-card"><div><h2>02 – Analys & AI</h2><p>Kohorter, signifikans, beslut.</p></div><div class="actions"><a class="btn-primary" href="#analysis-ai">📄 Öppna sida</a></div></article>
+          <article class="card learn-card"><div><h2>02a – Skrapa en sida</h2><p>Insikter & konkurrens.</p></div><div class="actions"><a class="btn-primary" href="#scrape">📄 Öppna sida</a></div></article>
+          <article class="card learn-card"><div><h2>02b – Öppna API:er</h2><p>Automatisering & enrichment.</p></div><div class="actions"><a class="btn-primary" href="#open-apis">📄 Öppna sida</a></div></article>
+          <article class="card learn-card"><div><h2>02c – Kaggle-data</h2><p>Billig hypotes-testning.</p></div><div class="actions"><a class="btn-primary" href="#kaggle">📄 Öppna sida</a></div></article>
+          <article class="card learn-card"><div><h2>02d – Fler öppna dataset</h2><p>Marknadsstorlek & val.</p></div><div class="actions"><a class="btn-primary" href="#open-datasets">📄 Öppna sida</a></div></article>
+        </div>
+      </section>
+
+      <!-- NY SEKTIONSDEL: MINA LÄRDOMAR (med beskrivningar + tidslinje) -->
+      <section id="minalar" class="sub-hero">
+        <h2>Mina lärdomar</h2>
+        <p class="lead">Konkreta takeaways från kursen – vad jag faktiskt kan applicera i growth-arbete.</p>
+        <div class="timeline">
+          <div class="tl-item"><div class="tl-title">Spårning som strategi</div><div>Binder ihop GTM + dataLayer + GA4 så att varje experiment är mätbart och beslut kan tas på tillförlitlig data.</div></div>
+          <div class="tl-item"><div class="tl-title">Hypotes → test → lärdom</div><div>Införde enkel mall för hypotes, mätplan och exitkriterier. Shippar små förändringar snabbare.</div></div>
+          <div class="tl-item"><div class="tl-title">Acquisition till Activation</div><div>Bygger rapport som visar kanal → aktivering → intäkt. Hjälper till att optimera budget mot verklig påverkan.</div></div>
+          <div class="tl-item"><div class="tl-title">Automatisering & öppna data</div><div>API:er och scrapes för att få in rätt data i dashboards och CRM för segmentering.</div></div>
+        </div>
+        <div class="grid">
+          <article class="card learn-card"><div><h2>Case: UTM → Aktivering</h2><p>Knyter kampanjklick till aktiveringsmål; visar vilka kanaler som skapar AHA-ögonblick.</p></div><div class="actions"><a class="btn" href="#queryparams">Läs hur</a></div></article>
+          <article class="card learn-card"><div><h2>Case: dataLayer som produkt</h2><p>Spec som säljer in spårning internt; alla förstår vad som mäts och varför.</p></div><div class="actions"><a class="btn" href="#datalayer">Se spec</a></div></article>
+        </div>
+      </section>
     </section>
 
-    <section id="verktyg" class="grid">
+    <!-- UNDERSIDOR (SPA) – samma IDs som i korten ovan -->
+    <section id="intro" class="page"><div class="sub-hero"><span class="kicker">00 – Introduktion</span><h2>North Star & experimentkadens</h2><p>Formulera <strong>North Star Metric</strong> och definiera sekundära mål (aktivering, retention, intäkt). Skapa impact/effort-matris och sätt kadens för experiment.</p><div class="badge">NSM</div><div class="badge">Roadmap</div><div class="badge">ICE-score</div><p class="back"><a class="btn" href="#home">← Tillbaka</a></p></div></section>
+    <section id="clone" class="page"><div class="sub-hero"><span class="kicker">01 – Clone</span><h2>Ship snabbt, lär snabbare</h2><ul><li>Branch-strategi för parallella experiment</li><li>Feature flags för säker A/B</li><li>PR-mallar med hypotes och mätplan</li></ul><p class="back"><a class="btn" href="#home">← Tillbaka</a></p></div></section>
+    <section id="gtm" class="page"><div class="sub-hero"><span class="kicker">01 – GTM</span><h2>Spårning för beslut</h2><p>Events för activation, AHA och e-handelsflöden. Debug & versioning för datakvalitet.</p><div class="badge">Attribution</div><div class="badge">Funnel</div><div class="badge">A/B</div><p class="back"><a class="btn" href="#home">← Tillbaka</a></p></div></section>
+    <section id="datalayer" class="page"><div class="sub-hero"><span class="kicker">01a – dataLayer</span><h2>Event som driver affär</h2><p>Speca vägen till värde (TTFV) och namnge konsekvent. Exempel: <code>purchase</code>, <code>add_to_cart</code>, <code>signup_completed</code>.</p><p class="back"><a class="btn" href="#home">← Tillbaka</a></p></div></section>
+    <section id="gtmjs" class="page"><div class="sub-hero"><span class="kicker">01b – GTM & JS</span><h2>Segmentering & personalisering</h2><p>JS-variabler för intentsignaler, regex-rensning och säkra DOM-selectors.</p><p class="back"><a class="btn" href="#home">← Tillbaka</a></p></div></section>
+    <section id="queryparams" class="page"><div class="sub-hero"><span class="kicker">01c – queryParams</span><h2>Från klick till aktivering</h2><p>UTM-standard, first/last-touch och lagring i session/cookie. Rapport som visar kanal → aktivering → intäkt.</p><p class="back"><a class="btn" href="#home">← Tillbaka</a></p></div></section>
+    <section id="analysis-ai" class="page"><div class="sub-hero"><span class="kicker">02 – Analys & AI</span><h2>Data → insikt → beslut</h2><p>Kohorter, retention-kurvor och signifikans. AI används för hypoteser – valideras alltid mot ground truth.</p><p class="back"><a class="btn" href="#home">← Tillbaka</a></p></div></section>
+    <section id="scrape" class="page"><div class="sub-hero"><span class="kicker">02a – Skrapa</span><h2>Marknadsinsikter i skala</h2><p>Prisövervakning, SERP-analyser och testimonial scraping med etiska ramar.</p><p class="back"><a class="btn" href="#home">← Tillbaka</a></p></div></section>
+    <section id="open-apis" class="page"><div class="sub-hero"><span class="kicker">02b – Öppna API:er</span><h2>Enrichment & automatisering</h2><p>Data in till dashboards och CRM; triggar lifecycle-flöden.</p><p class="back"><a class="btn" href="#home">← Tillbaka</a></p></div></section>
+    <section id="kaggle" class="page"><div class="sub-hero"><span class="kicker">02c – Kaggle</span><h2>Billig validering</h2><p>Prototypa snabbt på publika dataset för att testa hypoteser innan man investerar i insamling.</p><p class="back"><a class="btn" href="#home">← Tillbaka</a></p></div></section>
+    <section id="open-datasets" class="page"><div class="sub-hero"><span class="kicker">02d – Fler öppna dataset</span><h2>Marknadsstorlek & benchmarks</h2><p>Underlag för TAM/SAM/SOM och CAC/LTV-benchmarks.</p><p class="back"><a class="btn" href="#home">← Tillbaka</a></p></div></section>
 
-      <!-- LinkedIn -->
-      <article class="card">
-        <div>
-          <h2>🔵 LinkedIn</h2>
-          <p>Professionellt nätverk för kontakter, inlägg och meritlista.</p>
-        </div>
-        <div class="actions">
-          <a class="btn-primary" href="https://www.linkedin.com/" target="_blank" rel="noopener"><span class="icon">↗</span>Öppna LinkedIn</a>
-          <a class="btn" href="https://www.linkedin.com/in/DIN-ALIAS" target="_blank" rel="noopener"><span class="icon">👤</span>Min profil</a>
-          <span class="meta">Användning: Personligt varumärke & nätverk</span>
-        </div>
-      </article>
-
-      <!-- GitHub -->
-      <article class="card">
-        <div>
-          <h2>🐙 GitHub</h2>
-          <p>Kod, projekt och dokumentation. Issues & PRs för samarbete.</p>
-        </div>
-        <div class="actions">
-          <a class="btn-primary" href="https://github.com/" target="_blank" rel="noopener"><span class="icon">↗</span>Öppna GitHub</a>
-          <a class="btn" href="https://github.com/DITT-ANV" target="_blank" rel="noopener"><span class="icon">📁</span>Mina repos</a>
-          <span class="meta">Användning: Versionskontroll & portfolio</span>
-        </div>
-      </article>
-
-      <!-- Google Analytics -->
-      <article class="card">
-        <div>
-          <h2>📊 Google Analytics (GA4)</h2>
-          <p>Trafik, beteende och konverteringar. Bygg rapporter och publiker.</p>
-        </div>
-        <div class="actions">
-          <a class="btn-primary" href="https://analytics.google.com/" target="_blank" rel="noopener"><span class="icon">↗</span>Öppna GA4</a>
-          <a class="btn" href="https://analytics.google.com/analytics/web/#/pXXXXXXX/reports" target="_blank" rel="noopener"><span class="icon">📈</span>Favoritrapport</a>
-          <span class="meta">Användning: Insikter & KPI-uppföljning</span>
-        </div>
-      </article>
-
-      <!-- Google Tag Manager -->
-      <article class="card">
-        <div>
-          <h2>🏷️ Google Tag Manager</h2>
-          <p>Hub för taggar (GA4, Ads, Hotjar m.fl.). Förhandsgranska & publicera.</p>
-        </div>
-        <div class="actions">
-          <a class="btn-primary" href="https://tagmanager.google.com/" target="_blank" rel="noopener"><span class="icon">↗</span>Öppna GTM</a>
-          <a class="btn" href="https://tagmanager.google.com/#/container/accounts/XXXX/containers/YYYY/workspaces/1" target="_blank" rel="noopener"><span class="icon">🧩</span>Min container</a>
-          <span class="meta">Användning: Tilläggsfri spårning & QA</span>
-        </div>
-      </article>
-
-      <!-- Google Docs -->
-      <article class="card">
-        <div>
-          <h2>📝 Google Docs</h2>
-          <p>Specar, copy och anteckningar. Delning och versionshistorik.</p>
-        </div>
-        <div class="actions">
-          <a class="btn-primary" href="https://docs.google.com/" target="_blank" rel="noopener"><span class="icon">↗</span>Öppna Docs</a>
-          <a class="btn" href="https://docs.google.com/document/d/DIN-DOC-ID/edit" target="_blank" rel="noopener"><span class="icon">🗂️</span>Projekt-dokument</a>
-          <span class="meta">Användning: Samredigering</span>
-        </div>
-      </article>
-
-      <!-- Google Drive -->
-      <article class="card">
-        <div>
-          <h2>📁 Google Drive</h2>
-          <p>Designfiler, exports och avtal. Strukturerad lagring per projekt/kund.</p>
-        </div>
-        <div class="actions">
-          <a class="btn-primary" href="https://drive.google.com/" target="_blank" rel="noopener"><span class="icon">↗</span>Öppna Drive</a>
-          <a class="btn" href="https://drive.google.com/drive/folders/DIN-MAPP-ID" target="_blank" rel="noopener"><span class="icon">🗃️</span>Projektmapp</a>
-          <span class="meta">Användning: Dokument & assets</span>
-        </div>
-      </article>
-
-      <!-- Google Search Console -->
-      <article class="card">
-        <div>
-          <h2>🔎 Google Search Console</h2>
-          <p>Indexering, sökord och Core Web Vitals. Teknikstatus & förbättringar.</p>
-        </div>
-        <div class="actions">
-          <a class="btn-primary" href="https://search.google.com/search-console" target="_blank" rel="noopener"><span class="icon">↗</span>Öppna GSC</a>
-          <a class="btn" href="https://search.google.com/search-console?resource_id=https://din-domän.se/" target="_blank" rel="noopener"><span class="icon">🌐</span>Min property</a>
-          <span class="meta">Användning: SEO & hälsa</span>
-        </div>
-      </article>
-
-      <!-- Google Ads -->
-      <article class="card">
-        <div>
-          <h2>💰 Google Ads</h2>
-          <p>Kampanjer, målgrupper och konverteringar. Kopplat via GTM/GA4.</p>
-        </div>
-        <div class="actions">
-          <a class="btn-primary" href="https://ads.google.com/" target="_blank" rel="noopener"><span class="icon">↗</span>Öppna Ads</a>
-          <a class="btn" href="https://ads.google.com/aw/overview?ocid=XXXXXXX" target="_blank" rel="noopener"><span class="icon">📊</span>Kontoöversikt</a>
-          <span class="meta">Användning: Betald trafik & ROAS</span>
-        </div>
-      </article>
-
-      <!-- Klaviyo -->
-      <article class="card">
-        <div>
-          <h2>📧 Klaviyo</h2>
-          <p>Flows, segment och kampanjer. Triggers via e-handel & events.</p>
-        </div>
-        <div class="actions">
-          <a class="btn-primary" href="https://www.klaviyo.com/" target="_blank" rel="noopener"><span class="icon">↗</span>Öppna Klaviyo</a>
-          <a class="btn" href="https://www.klaviyo.com/flows/DIN-FLOW-ID" target="_blank" rel="noopener"><span class="icon">🔁</span>Order-flow</a>
-          <span class="meta">Användning: Retention & CRM</span>
-        </div>
-      </article>
-
-    </section>
-
-    <footer id="kontakt">
+    <footer id="kontakt" class="page active" style="display:block">
       <span>© <span id="y"></span> Vilhelm af Ekenstam</span>
       <span class="pill">Kontakt: <a class="btn" href="mailto:vilhelm@example.com">✉️ Maila mig</a></span>
     </footer>
@@ -211,6 +173,21 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   <script>
     // Dynamiskt årtal
     document.getElementById('y').textContent = new Date().getFullYear();
+
+    // Enkel hashrouter för undersidor
+    const pages = Array.from(document.querySelectorAll('.page'));
+    function render(){
+      const hash = location.hash.replace('#','') || 'home';
+      pages.forEach(p=>p.classList.remove('active'));
+      const active = document.getElementById(hash);
+      if(active){ active.classList.add('active'); window.scrollTo({top:0, behavior:'instant'}); }
+      document.querySelectorAll('header nav a').forEach(a=>{
+        const target = a.getAttribute('href').replace('#','');
+        a.style.opacity = (target===hash)? '1' : '.85';
+      });
+    }
+    window.addEventListener('hashchange', render);
+    window.addEventListener('DOMContentLoaded', render);
   </script>
 </body>
 </html>
